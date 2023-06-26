@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가계부추가</title>
+    <link rel="stylesheet" href="./list.css">
+</head>
+<body>
+    <h1><a href="/"><span>가계부</span></a></h1>
+    <h2><span>가계부 추가</span></h2>
+    <form method="post">
+        <fieldset>
+            <legend>가계부추가</legend>
+            <table>
+                <tr>
+                    <td><label>날짜</label></td>
+                    <td><input type="date" name="날짜" id="date"></td>
+                </tr>
+                <tr>
+                    <td><label>구분</label></td>
+                    <td>
+                        <select name="구분">
+                            <option value="현금">현금</option>
+                            <option value="카드">카드</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>항목</label></td>
+                    <td><input type="text" name="항목"></td>
+                </tr>
+                <tr>
+                    <td><label>지출</label></td>
+                    <td><input type="number" name="지출"></td>
+                </tr>
+                <tr>
+                    <td><label>수입</label></td>
+                    <td><input type="number" name="수입"></td>
+                </tr>
+                <tr>
+                    <td><label>메모</label></td>
+                    <td><input type="text" name="메모"></td>
+                </tr>
+                
+            </table>
+        </fieldset>
+        <input type="submit">
+    </form>
+
+    <script>
+        let today=new Date().toISOString().substring(0,10);
+        document.getElementById("date").value=today;
+    </script>
+</body>
+</html>

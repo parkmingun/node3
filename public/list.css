@@ -1,0 +1,132 @@
+
+body{
+    color: #333;
+}
+
+a{
+    text-decoration: none;
+    margin-top: 10px;
+    padding: 10px;
+    color: white;
+    background: #333;
+}
+
+
+
+
+/* 가계부 */
+h1, h1>span{
+    position: relative;
+}
+
+h1>span::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: #c7c6c6;
+    position: absolute;
+    bottom: 7px;
+    z-index: -1;
+}
+
+
+/* 검색창 */
+.search-form{
+    width: 500px;
+}
+
+/* 검색 셀렉창 */
+.search-form>p>select{
+    border: 1px solid #333;
+    font-size: 13px;
+    padding: 5px;
+    width: 100px;
+}
+
+/* 검색바 */
+.search-bar {
+    border: 1px solid #333;
+    font-size: 13px;
+    margin: 10px 0 0 25px;
+    padding: 5px;
+    width: 150px;
+}
+
+/* 검색버튼 */
+.search-button {
+    background: #333;
+    border: 1px solid #333;
+    border-left: none; 
+    color: white;
+    cursor: pointer;	
+    font-size: 13px;
+    margin: 10px 0 25px 0;
+    width: 60px;
+    padding: 5px;
+}
+  
+.search-button:hover {
+        background: #006600;
+}
+
+
+/* 정렬 */
+
+.filter>li{
+    display: inline-block;
+    margin: 0 20px;
+}
+.filter>li>a{
+    font-weight: bold;    
+}
+
+
+
+/* 테이블 */
+table{
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th{
+    border-bottom: 3px double gray;
+    font-size: 1em;
+}
+
+th:nth-child(1),th:nth-child(2){
+    width: 50px;
+}
+
+td{
+    border-bottom: 1px solid gray;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 10px 3px;
+}
+
+button{
+    background: #333;
+    border: 1px solid #333;
+    border-left: none; 
+    color: white;
+    cursor: pointer;	
+    font-size: 13px;
+    margin: 10px 0 25px 0;
+    width: 60px;
+    padding: 5px;
+}
+
+form>input{
+    margin-top: 10px;
+    padding: 10px;
+    border: 0;
+}
+
+form>input:focus{
+    outline: none;
+}
+
+fieldset{
+    margin-bottom: 10px;
+}

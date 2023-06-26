@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가계부수정페이지 </title>
+    <!-- <link rel="stylesheet" href="./bookList.css"> -->
+    <style>
+        @charset "urf-8";
+
+body{
+    color: #333;
+}
+
+h1, h1>span{
+    position: relative;
+}
+
+h1>span::before{
+    content: "";
+    display: block;
+    width: 100%;
+    height: 10px;
+    background-color: #c7c6c6;
+    position: absolute;
+    bottom: 7px;
+    z-index: -1;
+}
+
+table{
+    border-collapse: collapse;
+    margin-bottom: 10px;
+}
+
+th{
+    border-bottom: 3px double gray;
+    font-size: 1em;
+}
+
+td{
+    border-bottom: 3px double gray;
+    font-size: 0.9em;
+    text-align: center;
+    padding: 10px 3px;
+}
+
+a{
+    text-decoration: none;
+    padding: 4px 5px 5px;
+}
+
+button, a{
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+form>input{
+    margin-top: 10px;
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+input { 
+    border: 0;
+}
+
+input:focus{
+    outline: none;
+}
+
+fieldset{
+    margin-bottom: 10px;
+}
+    </style>
+</head>
+<body>
+    <h1><a href="/"><span>가계부</span></a></h1>
+    <h2><span>가계부수정페이지 Page </span></h2>
+    <form method="post">
+        <fieldset>
+            <legend>가계부수정 data</legend>
+            <table>
+                <tr>
+                    <td><label>날짜</label></td>
+                    <td><input type="date" name="날짜" value="<%= data.날짜 %>"></td>
+                </tr>
+                <tr>
+                    <td><label>구분</label></td>
+                    <td>
+                        <select name="구분" value="<%= data.구분 %>">
+                            <option value="">선택하세요</option>
+                            <option value="현금">현금</option>
+                            <option value="카드">카드</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td><label>항목</label></td>
+                    <td><input type="text" name="항목" value="<%= data.항목 %>"></td>
+                </tr>
+                
+                <tr>
+                    <td><label>지출</label></td>
+                    <td><input type="number" name="지출" value="<%= data.지출 %>"></td>
+                </tr>
+                <tr>
+                    <td><label>수입</label></td>
+                    <td><input type="number" name="수입" value="<%= data.수입 %>"></td>
+                </tr>
+                <tr>
+                    <td><label>메모</label></td>
+                    <td><input type="text" name="메모" value="<%= data.메모 %>"></td>
+                </tr>
+            </table>
+        </fieldset>
+        <input type="submit">
+    </form>
+</body>
+</html>

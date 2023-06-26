@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가계부</title>
+    <link rel="stylesheet" href="./list.css">
+   
+</head>
+<body>
+   
+    <h1><a href="/"><span>가계부</span></a> </h1>
+    <form action="/search" method="get" class="search-form">
+        <p>검색
+            <select name="search" id="search">
+            <option value="전체">통합검색</option>
+            <option value="구분">구분</option>
+            <option value="항목">항목</option>
+            <option value="지출">지출</option>
+            <option value="수입">수입</option>
+           <!-- <option value="잔액">잔액</option> -->
+            <!-- 잔액이 테이블의 컬럼이 아니기때문에 해당 조건으로 조회불가 -->
+            <option value="메모">메모</option>
+            </select>  
+        	<input type="text" class="search-bar" name="keyword" placeholder="검색어를 입력하세요.">
+        </p>
+         <p>
+            날짜 <input type="date" id="date"> 
+        </p>
+        <p>
+        <input type="submit" class="search-button" value="Search" > 
+        </p>   
+        
+    </form>
+    
+    <!-- 정렬 -->
+    <!-- <form action="#" method="get">
+        <ul class="filter">
+            <li><a href="/datefilter"> 날짜순</a></li>
+            <li><a href="/jichool"> 지출순</a></li>
+        </ul>
+    </form> -->
+
+    <form action="#" method="get" name="f1">
+       
+    <table>
+        <tr>
+            <th><input type="checkbox" name="allcheck" class="allcheck"></th>
+            <th>번호</th>
+            <th>날짜</th>
+            <th>구분</th>
+            <th>항목</th>
+            <th>지출</th>
+            <th>수입</th>
+            <th>잔액</th>
+            <th>메모</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        <% data.forEach(function (accountslist, index) { %>
+
+        <script>
+            function checkvalue(){
+                let x=document.getElementById("check").value;
+            alert(x);
+            }
+           
+            
+        </script>
+
+
+
+        <tr>
+            <td><input type="text" value="<%= accountslist.번호 %>" id="check" onclick="checkvalue()"></td>
+            <td><%= accountslist.번호 %></td>
+            <td><%= accountslist.날짜 %></td>
+            <td><%= accountslist.구분 %></td>
+            <td><%= accountslist.항목 %></td>
+            <td><%= accountslist.지출 %></td>
+            <td><%= accountslist.수입 %></td>
+            <td><%= accountslist.잔액 %></td>
+            <td><%= accountslist.메모 %></td>
+            <td><a href="/modify/<%=accountslist.번호 %>">수정</a></td>
+            <td><a href="/delete/<%=accountslist.번호 %>" onclick="del()">삭제</a></td>  
+            
+         </tr>
+         <%}); %>
+
+         <tr>
+            <td colspan="5">총합계</td>
+            <td><%= expendituretotal %></td>
+            <td><%= incometotal %></td>
+        </tr>
+    </table>
+      
+        </fieldset>
+        
+    </form>
+    
+    <form action="/create" method="get">
+        <button type="submit">CREATE</button>
+    </form>
+</body>
+</html>
