@@ -34,19 +34,12 @@
         
     </form>
     
-    <!-- 정렬 -->
-    <!-- <form action="#" method="get">
-        <ul class="filter">
-            <li><a href="/datefilter"> 날짜순</a></li>
-            <li><a href="/jichool"> 지출순</a></li>
-        </ul>
-    </form> -->
+  
 
     <form action="#" method="get" name="f1">
        
     <table>
         <tr>
-            <th><input type="checkbox" name="allcheck" class="allcheck"></th>
             <th>번호</th>
             <th>날짜</th>
             <th>구분</th>
@@ -60,19 +53,12 @@
         </tr>
         <% data.forEach(function (accountslist, index) { %>
 
-        <script>
-            function checkvalue(){
-                let x=document.getElementById("check").value;
-            alert(x);
-            }
-           
-            
-        </script>
+       
 
 
 
         <tr>
-            <td><input type="text" value="<%= accountslist.번호 %>" id="check" onclick="checkvalue()"></td>
+          
             <td><%= accountslist.번호 %></td>
             <td><%= accountslist.날짜 %></td>
             <td><%= accountslist.구분 %></td>
