@@ -94,9 +94,6 @@ th{
     font-size: 1em;
 }
 
-th:nth-child(1),th:nth-child(2){
-    width: 50px;
-}
 
 td{
     border-bottom: 1px solid gray;
