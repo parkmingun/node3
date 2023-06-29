@@ -37,8 +37,7 @@ app.use(express.static(`${__dirname}/public`));
 // list.html 읽어와서 테이블 데이터 뿌려주기
 app.get('/', (request, response) => {
     fs.readFile('public/list.html', 'utf-8', (error,data)=>{
-        let sql='select *, sum(수입-지출) over(ORDER BY 번호,날짜) as 잔액 from accountslist order by 날짜 desc, 번호 desc';
-        // let jtotal='select sum(지출) as 지출총합 from accountslist' 
+        let sql='select *, sum(수입-지출) over(ORDER BY 번호,날짜) as 잔액 from accountslist order by 날짜 ASC, 번호 ASC';
         connection.query(sql ,  (error, results, fields) => {
             if (error) throw error;
             const expenditure=results.map(results => results.지출);
@@ -66,7 +65,7 @@ app.get('/search', (request, response) => {
   let querydate = request.query.date;
   fs.readFile('public/list.html', 'utf-8', (error,data)=>{
     if(queryselect==="전체"){
-      connection.query(`select *,sum(수입-지출) over(ORDER BY 번호,날짜) as 잔액 from accountslist where 구분 like ? or 항목 LIKE ? or 지출 LIKE ? or 수입 LIKE ? or 메모 LIKE ? order by 날짜 desc, 번호 desc`, [`%${querykeyword}%`,`%${querykeyword}%`,`%${querykeyword}%`,`%${querykeyword}%`,`%${querykeyword}%`], (error, results, fields) => {
+      connection.query(`select *,sum(수입-지출) over(ORDER BY 번호,날짜) as 잔액 from accountslist where 구분 like ? or 항목 LIKE ? or 지출 LIKE ? or 수입 LIKE ? or 메모 LIKE ? order by 날짜 ASC, 번호 ASC`, [`%${querykeyword}%`,`%${querykeyword}%`,`%${querykeyword}%`,`%${querykeyword}%`,`%${querykeyword}%`], (error, results, fields) => {
         if (error) throw error;
             const expenditure=results.map(results => results.지출);
             const income=results.map(results=> results.수입);
@@ -80,7 +79,7 @@ app.get('/search', (request, response) => {
         }); 
       }
       else{
-        connection.query(`select *,sum(수입-지출) over(ORDER BY 번호,날짜) as 잔액 FROM accountslist where ${queryselect} LIKE ? order by 날짜 desc, 번호 desc`,`%${querykeyword}%`, (error, results, fields) => {
+        connection.query(`select *,sum(수입-지출) over(ORDER BY 번호,날짜) as 잔액 FROM accountslist where ${queryselect} LIKE ? order by 날짜 ASC, 번호 ASC`,`%${querykeyword}%`, (error, results, fields) => {
           if (error) throw error;
              const expenditure=results.map(results => results.지출);
              const income=results.map(results=> results.수입);
